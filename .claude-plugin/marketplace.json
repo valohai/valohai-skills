@@ -1,0 +1,39 @@
+{
+  "name": "valohai-skills",
+  "owner": {
+    "name": "Valohai",
+    "email": "support@valohai.com"
+  },
+  "plugins": [
+    {
+      "name": "valohai-yaml-step",
+      "description": "Write Valohai YAML step definitions",
+      "source": "./valohai-yaml-step"
+    },
+    {
+      "name": "valohai-migrate-parameters",
+      "description": "Migrate hardcoded parameters to Valohai inputs/parameters",
+      "source": "./valohai-migrate-parameters"
+    },
+    {
+      "name": "valohai-migrate-metrics",
+      "description": "Migrate metrics logging to Valohai metadata format",
+      "source": "./valohai-migrate-metrics"
+    },
+    {
+      "name": "valohai-migrate-data",
+      "description": "Migrate data loading to Valohai inputs/outputs",
+      "source": "./valohai-migrate-data"
+    },
+    {
+      "name": "valohai-project-run",
+      "description": "Run Valohai executions and pipelines via CLI",
+      "source": "./valohai-project-run"
+    },
+    {
+      "name": "valohai-design-pipelines",
+      "description": "Design and configure Valohai pipelines",
+      "source": "./valohai-design-pipelines"
+    }
+  ]
+}

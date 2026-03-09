@@ -1,0 +1,10 @@
+{
+  "name": "valohai-migrate-metrics",
+  "version": "1.0.0",
+  "description": "Migrate metrics logging to Valohai metadata format",
+  "author": "Valohai",
+  "license": "Apache-2.0",
+  "skills": [
+    "SKILL.md"
+  ]
+}

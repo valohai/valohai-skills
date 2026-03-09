@@ -1,0 +1,6 @@
+{
+  "name": "valohai-migrate-data",
+  "description": "Migrate data loading and model saving to Valohai inputs/outputs",
+  "version": "1.0.0",
+  "author": { "name": "Valohai" }
+}

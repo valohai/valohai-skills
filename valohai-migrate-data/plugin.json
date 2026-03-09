@@ -1,0 +1,10 @@
+{
+  "name": "valohai-migrate-data",
+  "version": "1.0.0",
+  "description": "Migrate data loading and saving to Valohai inputs and outputs",
+  "author": "Valohai",
+  "license": "Apache-2.0",
+  "skills": [
+    "SKILL.md"
+  ]
+}

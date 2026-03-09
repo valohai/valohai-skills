@@ -1,0 +1,10 @@
+{
+  "name": "valohai-yaml-step",
+  "version": "1.0.0",
+  "description": "Write Valohai YAML step definitions for ML projects",
+  "author": "Valohai",
+  "license": "Apache-2.0",
+  "skills": [
+    "SKILL.md"
+  ]
+}

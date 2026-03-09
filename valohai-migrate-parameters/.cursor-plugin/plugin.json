@@ -1,0 +1,6 @@
+{
+  "name": "valohai-migrate-parameters",
+  "description": "Migrate hardcoded hyperparameters to Valohai-managed parameters",
+  "version": "1.0.0",
+  "author": { "name": "Valohai" }
+}

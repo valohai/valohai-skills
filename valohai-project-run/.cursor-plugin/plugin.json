@@ -1,0 +1,6 @@
+{
+  "name": "valohai-project-run",
+  "description": "Set up Valohai projects and run executions via the vh CLI",
+  "version": "1.0.0",
+  "author": { "name": "Valohai" }
+}

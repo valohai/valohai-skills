@@ -1,0 +1,6 @@
+{
+  "name": "valohai-migrate-metrics",
+  "description": "Add Valohai metrics and metadata tracking to ML training code",
+  "version": "1.0.0",
+  "author": { "name": "Valohai" }
+}

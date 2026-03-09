@@ -1,0 +1,6 @@
+{
+  "name": "valohai-design-pipelines",
+  "description": "Design and configure multi-step Valohai ML pipelines",
+  "version": "1.0.0",
+  "author": { "name": "Valohai" }
+}

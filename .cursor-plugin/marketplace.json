@@ -1,0 +1,13 @@
+{
+  "name": "valohai-skills",
+  "description": "Valohai skills for AI coding agents - migrate and configure ML projects on Valohai",
+  "author": { "name": "Valohai" },
+  "plugins": [
+    { "name": "valohai-yaml-step", "source": "./valohai-yaml-step" },
+    { "name": "valohai-migrate-parameters", "source": "./valohai-migrate-parameters" },
+    { "name": "valohai-migrate-metrics", "source": "./valohai-migrate-metrics" },
+    { "name": "valohai-migrate-data", "source": "./valohai-migrate-data" },
+    { "name": "valohai-project-run", "source": "./valohai-project-run" },
+    { "name": "valohai-design-pipelines", "source": "./valohai-design-pipelines" }
+  ]
+}

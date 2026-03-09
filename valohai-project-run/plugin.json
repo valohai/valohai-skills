@@ -1,0 +1,10 @@
+{
+  "name": "valohai-project-run",
+  "version": "1.0.0",
+  "description": "Run Valohai executions and pipelines via CLI",
+  "author": "Valohai",
+  "license": "Apache-2.0",
+  "skills": [
+    "SKILL.md"
+  ]
+}

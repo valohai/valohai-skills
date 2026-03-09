@@ -1,0 +1,10 @@
+{
+  "name": "valohai-migrate-parameters",
+  "version": "1.0.0",
+  "description": "Migrate hardcoded parameters to Valohai inputs and parameters",
+  "author": "Valohai",
+  "license": "Apache-2.0",
+  "skills": [
+    "SKILL.md"
+  ]
+}
