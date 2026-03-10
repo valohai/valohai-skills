@@ -18,7 +18,7 @@ These skills give AI coding agents (Claude Code, GitHub Copilot, Cursor, etc.) t
 ## Installation
 
 ```shell
-npx skills add valohai/valohai-skills
+npx skills add valohai/valohai-skills --all
 ```
 
 ## Migration Workflow
