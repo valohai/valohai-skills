@@ -88,6 +88,8 @@ Add a `parameters` section to the step definition:
 
 Valohai supports several placeholders in the `command` field. Understanding the difference is critical to avoid argument parsing errors.
 
+**SYNTAX WARNING**: The delimiter is always a **colon** (`:`), never brackets or parentheses. `{parameter-value:name}` is correct. `{parameter-value[name]}` and `{parameter(name)}` are WRONG and will silently fail.
+
 #### `{parameters}` - Preferred approach
 
 Expands to ALL parameters with their `pass-as` format (default: `--name=value`). This is the safest and most common approach:
@@ -137,7 +139,7 @@ command:
 # Expands to: python main.py --conf=0.5 --iou=0.7
 ```
 
-**Rule of thumb**: Use `{parameters}` to pass all parameters. Use `{parameter:name}` when you need specific parameters in specific positions. Only use `{parameter-value:name}` when embedding a value into a custom format. Never combine `--flag={parameter:name}` - that double-wraps the argument.
+**Rule of thumb**: Use `{parameters}` to pass all parameters. Use `{parameter:name}` when you need specific parameters in specific positions. Only use `{parameter-value:name}` when embedding a value into a custom format. Never combine `--flag={parameter:name}` - that double-wraps the argument. **Always use colons** — `{parameter-value:name}` not `{parameter-value[name]}`.
 
 ### 4. Parameter Types Reference
 

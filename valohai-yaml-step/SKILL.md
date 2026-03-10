@@ -75,7 +75,32 @@ Look for dependency files in the project:
 
 Always place install commands before any Python script execution in the `command` list.
 
-### 4. Create the Step Definition
+### 4. Keep Commands Simple — Use Helper Scripts
+
+**IMPORTANT**: Step commands in `valohai.yaml` must be simple and human-readable. Never put bash loops, inline Python one-liners, complex piped commands, or multi-line logic directly in the `command` list.
+
+If a step needs non-trivial setup or orchestration logic (e.g., downloading extra resources, converting formats, running multiple sub-steps), **create a helper Python script** in a `valohai/` folder and call it from the command:
+
+```yaml
+# WRONG - complex logic crammed into commands
+command:
+  - pip install -r requirements.txt
+  - for f in /valohai/inputs/data/*.tar; do tar xf "$f" -C /tmp/data; done
+  - python -c "import os; [os.rename(f, f.lower()) for f in os.listdir('/tmp/data')]"
+  - python train.py {parameters}
+
+# CORRECT - clean commands, logic lives in a helper script
+command:
+  - pip install -r requirements.txt
+  - python valohai/prepare_data.py
+  - python train.py {parameters}
+```
+
+The helper script `valohai/prepare_data.py` contains the extraction and renaming logic. This keeps the YAML readable, the logic testable, and avoids shell quoting nightmares.
+
+**Rule of thumb**: If a command line is longer than ~80 characters or uses shell control flow (loops, conditionals, subshells), move it to a helper script.
+
+### 5. Create the Step Definition
 
 #### Minimal Step
 
@@ -247,17 +272,26 @@ command:
   - python preprocess.py
   - python train.py {parameters}
 
+# PARAMETER SYNTAX - uses COLONS, not brackets or parentheses
+#
+# {parameters}              → all params as --name=value
+# {parameter:name}          → one param as --name=value
+# {parameter-value:name}    → one param as raw value only
+#
+# WRONG: {parameter-value[name]} {parameter[name]} {parameter(name)}
+# RIGHT: {parameter-value:name}  {parameter:name}  (always use colons!)
+
 # {parameters} - expands ALL parameters with --name=value format (preferred)
 command:
   - python train.py {parameters}
 # Expands to: python train.py --epochs=50 --learning_rate=0.001
 
-# {parameter:name} - expands a single parameter with --name=value format
+# {parameter:name} - ONE parameter as --name=value (standalone, never after --)
 command:
   - python train.py --model /valohai/inputs/model/*.onnx {parameter:conf} {parameter:iou}
 # Expands to: python train.py --model /valohai/inputs/model/*.onnx --conf=0.5 --iou=0.7
 
-# {parameter-value:name} - expands to just the raw value (no --name= prefix)
+# {parameter-value:name} - ONE parameter as RAW VALUE ONLY (no --name= prefix)
 command:
   - python train.py --threshold {parameter-value:threshold}
 # Expands to: python train.py --threshold 0.5
